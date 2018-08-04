@@ -331,3 +331,6 @@ ASALocalRun/
 
 # Ignore Vagrant
 /.vagrant
+
+# Ignore Node Log Issues
+npm-debug.log.*
