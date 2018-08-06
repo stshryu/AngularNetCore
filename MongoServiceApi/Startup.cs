@@ -12,6 +12,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using MongoServiceApi.Contracts;
+using MongoServiceApi.Repository;
+using MongoServiceApi.Repository.Administrative;
 
 namespace MongoServiceApi
 {
@@ -42,6 +45,10 @@ namespace MongoServiceApi
       services.Configure<OptionsConfiguration>(Configuration);
 
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+      services.AddTransient<IRestaurantMongoRepository, RestaurantMongoRepository>();
+
+      services.AddScoped<IAPIDataSeed, APIDataSeed>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
